@@ -16,7 +16,7 @@ window.addEventListener('load', ()=>{
     else if(!username){
         if(urlname){
              //save the user's name in sessionStorage
-             sessionStorage.setItem('username', name);
+             sessionStorage.setItem('username', urlname);
 
              //reload room
              location.reload();
