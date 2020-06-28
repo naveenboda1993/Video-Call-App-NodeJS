@@ -6,6 +6,7 @@ import h from './helpers.js';
 
 window.addEventListener('load', ()=>{
     const room = h.getQString(location.href, 'room');
+    const urlname =h.getQString(location.href, 'name');
     const username = sessionStorage.getItem('username');
 
     if(!room){
@@ -13,7 +14,17 @@ window.addEventListener('load', ()=>{
     }
 
     else if(!username){
-        document.querySelector('#username-set').attributes.removeNamedItem('hidden');
+        if(urlname){
+             //save the user's name in sessionStorage
+             sessionStorage.setItem('username', name);
+
+             //reload room
+             location.reload();
+        }else{
+
+            document.querySelector('#username-set').attributes.removeNamedItem('hidden');
+        }
+
     }
 
     else{
